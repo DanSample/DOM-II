@@ -1,5 +1,15 @@
 // Your code goes here
 
+// Changes color of the nav logo
+
+let navLogoColor = document.querySelector('.logo-heading');
+navLogoColor.addEventListener('mouseenter', function(event){
+    event.target.style.color = '#17A2B8'
+})
+navLogoColor.addEventListener('mouseleave', function(event){
+    event.target.style.color = '#212529'
+})
+
 //Changes the color of the the nav items if mouse is hovered over them, and reverts color back when not.
 
 let navItems = document.querySelectorAll('.nav-link');
@@ -62,6 +72,29 @@ backgroundChange.addEventListener('keyup', function(event){
 
 window.addEventListener('load', function(){
     alert('The page has loaded')
+})
+
+// Preventing the event propagation
+
+let destinationClick = document.querySelectorAll('.destination');
+    destinationClick.forEach(function(item){
+        item.addEventListener('click', function(event){
+            console.log(`The container has been clicked`)
+    })
+    let btnClick = document.querySelectorAll('.btn');
+        btnClick.forEach(function(item){
+            item.addEventListener('click', function(event){
+                event.stopPropagation()
+                console.log(`The button has been clicked`)
+            })
+        })
+    })
+
+// Stops the 'contact' link from redirecting to the assigned url.
+
+let stopLink = document.querySelectorAll('.nav-link')[3];
+stopLink.addEventListener('click', function(event){
+    event.preventDefault()
 })
 
 

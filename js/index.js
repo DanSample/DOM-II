@@ -12,7 +12,7 @@ navItems.forEach(function(item){
     })
 })
 
-// inverts the images color when mouse clicked, and reverts when mouse click depressed.
+// inverts the images color when mouse clicked, and reverts when mouse unclicked.
 
 let funBus = document.querySelector('.busImg');
 funBus.addEventListener('mousedown', function(event){
@@ -21,6 +21,9 @@ funBus.addEventListener('mousedown', function(event){
 funBus.addEventListener('mouseup', function(event){
     event.target.classList.toggle('img-invert')
 })
+
+//add .remove so doesn't break when you click and move your mouse off the image before unclicking. 
+
 funBus.addEventListener('mouseout', function(event){
     event.target.classList.remove('img-invert')
 })
@@ -45,6 +48,21 @@ funAdventure.addEventListener('dblclick', function(event){
     event.target.setAttribute('src', 'img/fun.jpg')
 })
 
-// 
+//Changes the background to grey if a key is pressed, and back to white if key is lift. 
 
-let
+let backgroundChange = document.querySelector('body');
+backgroundChange.addEventListener('keydown', function(event){
+    event.target.style.backgroundColor = 'grey';
+})
+backgroundChange.addEventListener('keyup', function(event){
+    event.target.style.backgroundColor = 'white';
+})
+
+//Alerts user when page is fully loaded. 
+
+window.addEventListener('load', function(){
+    alert('The page has loaded')
+})
+
+
+
